@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: global-nutrition-ai-coach
+    runtime: node
+    plan: free
+    region: oregon
+    repo: https://github.com/Wai-999/global-nutrition-ai-coach
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    healthCheckPath: /
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
+      - key: ANTHROPIC_MAX_TOKENS
+        value: 4000
+      - key: MOCK_COACH_REPORT
+        value: false
+      - key: HOST
+        value: 0.0.0.0

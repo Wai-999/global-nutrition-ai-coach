@@ -52,3 +52,9 @@ The production server serves `dist/` and exposes the same `/api/coach` endpoint.
 Set `HOST` if you need to bind somewhere other than `127.0.0.1`.
 
 If you see "Demo mode is enabled" in the result, your server is running with `MOCK_COACH_REPORT=true`. Stop the server, set `MOCK_COACH_REPORT=false` or remove that line, then start it again.
+
+## Render Deployment
+
+This repo includes `render.yaml`, so Render can create the web service from a Blueprint.
+
+When Render asks for environment variables, provide your real Anthropic key for `ANTHROPIC_API_KEY`. The key is intentionally marked `sync: false` so it is never committed to GitHub.
